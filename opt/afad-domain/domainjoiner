@@ -213,6 +213,11 @@ entry_cache_timeout = 2592000
 cache_credentials = true
 account_cache_expiration = 3\n""")
 
+def addSSSD3():
+    with open("/etc/default/sssd", "a") as sssdfile:
+        sssdfile.write("""
+LC_ALL=tr_CY.UTF-8""")
+
 
 def addDNSUpdateOnStart():
     with open(PATH_IFUP, "w") as ifupfile:
@@ -340,8 +345,9 @@ def main(args):
             print("Ulaşılamadı, DNS adresinizi kontrol ediniz")
             exit()
   
-        localeGen()
+        #localeGen()
         addDomainExt(dj_machinename,domain)
+        addSSSD3()
 
         # domain
         addSAMBA(netbiosdomain,domain)
@@ -362,7 +368,7 @@ def main(args):
         krbDefaultRealm(domain)
         addMkHomedir()
         changeLightdmConf()
-        controlLocale()
+        #controlLocale()
         addSudoers(domainname)
         addDNSUpdateOnStart()
         #print("Tebrikler")
