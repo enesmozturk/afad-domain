@@ -345,9 +345,9 @@ def main(args):
             print("Ulaşılamadı, DNS adresinizi kontrol ediniz")
             exit()
   
-        #localeGen()
+        localeGen()
         addDomainExt(dj_machinename,domain)
-        addSSSD3()
+        
 
         # domain
         addSAMBA(netbiosdomain,domain)
@@ -368,7 +368,8 @@ def main(args):
         krbDefaultRealm(domain)
         addMkHomedir()
         changeLightdmConf()
-        #controlLocale()
+        controlLocale()
+        addSSSD3()
         addSudoers(domainname)
         addDNSUpdateOnStart()
         #print("Tebrikler")
