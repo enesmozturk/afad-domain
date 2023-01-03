@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 #######################################
@@ -303,14 +303,14 @@ def main(args):
     
     
     if (dj_leave=="1"):
-		leaveDomain()
+        leaveDomain()
     
     if (dj_password=="None"):
         domainpassword = getpass.getpass("Domain parolanızı giriniz: ")
     else:
         domainpassword = dj_password
 
-	print(dj_machinename)
+    print(dj_machinename)
 
     if (dj_oulocation=="None"):
         fulldn=dj_domainname.replace(".", ",dc=")

@@ -8,8 +8,13 @@
 ##################  AFAD - DOMAIN Kurulumu  ###########################################
 cp /opt/afad-domain/domainjoiner /usr/local/bin/
 chmod 777 /usr/local/bin/domainjoiner
-rm /usr/share/lightdm/lightdm-hvl-greeter.conf.d/resources/bgs/bg1.jpg
-cp /opt/afad-domain/hvl-lightdm-greeter.conf /usr/share/lightdm/lightdm-hvl-greeter.conf.d/
-chmod 755 /usr/share/lightdm/lightdm-hvl-greeter.conf.d/hvl-lightdm-greeter.conf
-cp /opt/afad-domain/afad0802.jpg /usr/share/lightdm/lightdm-hvl-greeter.conf.d/resources/bgs/
-chmod 755 /usr/share/lightdm/lightdm-hvl-greeter.conf.d/resources/bgs/afad0802.jpg
+#rm /usr/share/lightdm/lightdm-hvl-greeter.conf.d/resources/bgs/bg1.jpg
+#cp /opt/afad-domain/hvl-lightdm-greeter.conf /usr/share/lightdm/lightdm-hvl-greeter.conf.d/
+#chmod 755 /usr/share/lightdm/lightdm-hvl-greeter.conf.d/hvl-lightdm-greeter.conf
+#cp /opt/afad-domain/afad0802.jpg /usr/share/lightdm/lightdm-hvl-greeter.conf.d/resources/bgs/
+#chmod 755 /usr/share/lightdm/lightdm-hvl-greeter.conf.d/resources/bgs/afad0802.jpg
+cp /opt/afad-domain/afad-login.jpg /usr/share/images/desktop-base/
+mkdir -p /etc/pardus/greeter.conf.d
+cp /opt/afad-domain/greeter.conf /etc/pardus/greeter.conf.d/
+sed -i 's+^greeter-session=+#greeter-session=+g' /etc/lightdm/lightdm.conf
+
